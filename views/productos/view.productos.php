@@ -27,7 +27,6 @@
 					</div>
 					<div class="col-sm-6">
 						<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Crear poducto</span></a>
-						<a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Eliminar</span></a>						
 					</div>
                 </div>
             </div>
@@ -58,7 +57,6 @@
 							<tr>
 								<td>
 									<span class="custom-checkbox">
-										<input type="checkbox" id="checkbox1" name="options[]" value="1">
 										<label for="checkbox1"></label>
 									</span>
 								</td>');
@@ -82,7 +80,7 @@
 	<div id="addEmployeeModal" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form id="nuevo" name="nuevo" method="POST">
+				<form id="nuevo" name="nuevo" method="POST" action="index.php?c=productos&a=insertarProducto">
 					<div class="modal-header">						
 						<h4 class="modal-title">Crear poducto</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -90,31 +88,31 @@
 					<div class="modal-body">					
 						<div class="form-group">
 							<label>Nombre</label>
-							<input type="text" class="form-control" required>
+							<input id="Nombre" name="Nombre" type="text" class="form-control" required>
 						</div>
 						<div class="form-group">
 							<label>Referencia</label>
-							<input type="email" class="form-control" required>
+							<input id="Referencia" name="Referencia" type="text" class="form-control" required>
 						</div>
 						<div class="form-group">
 							<label>Precio</label>
-							<textarea class="form-control" required></textarea>
+							<textarea class="form-control" name="Precio" required></textarea>
 						</div>
 						<div class="form-group">
 							<label>Peso</label>
-							<input type="text" class="form-control" required>
+							<input id="Precio" name="Peso" type="text" class="form-control" required>
 						</div>
 						<div class="form-group">
 							<label>Categoria</label>
-							<input type="text" class="form-control" required>
+							<input id="Peso" name="Categoria" type="text" class="form-control" required>
 						</div>
 						<div class="form-group">
 							<label>Stock</label>
-							<input type="text" class="form-control" required>
+							<input id="Stock" name="Stock" type="text" class="form-control" required>
 						</div>
 						<div class="form-group">
 							<label>FechaCreacion</label>
-							<input type="text" class="form-control" required>
+							<input id="FechaCreacion" name="FechaCreacion" type="date" class="form-control" required>
 						</div>					
 					</div>
 					<div class="modal-footer">
@@ -129,27 +127,40 @@
 	<div id="editEmployeeModal" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form>
+			<form id="editar" name="editar" method="POST" action="index.php?c=productos&a=modificar&id=Id">
 					<div class="modal-header">						
 						<h4 class="modal-title">Edit Employee</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
-					<div class="modal-body">					
+					<div class="modal-body">	
+						<input type="hidden" class="form-control" name="Id" id="Id" value=" <?php echo($data["Id"])?>" required>				
 						<div class="form-group">
-							<label>Name</label>
-							<input type="text" class="form-control" required>
+							<label>Nombre</label>
+							<input id="Nombre" name="Nombre" type="text" class="form-control" required>
 						</div>
 						<div class="form-group">
-							<label>Email</label>
-							<input type="email" class="form-control" required>
+							<label>Referencia</label>
+							<input id="Referencia" name="Referencia" type="text" class="form-control" required>
 						</div>
 						<div class="form-group">
-							<label>Address</label>
-							<textarea class="form-control" required></textarea>
+							<label>Precio</label>
+							<textarea class="form-control" name="Precio" required></textarea>
 						</div>
 						<div class="form-group">
-							<label>Phone</label>
-							<input type="text" class="form-control" required>
+							<label>Peso</label>
+							<input id="Precio" name="Peso" type="text" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Categoria</label>
+							<input id="Peso" name="Categoria" type="text" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Stock</label>
+							<input id="Stock" name="Stock" type="text" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>FechaCreacion</label>
+							<input id="FechaCreacion" name="FechaCreacion" type="date" class="form-control" required>
 						</div>					
 					</div>
 					<div class="modal-footer">
